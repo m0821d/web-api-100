@@ -1,0 +1,22 @@
+# Day 1 Notes
+
+## CSharp / .NET
+
+    - Versions
+      - STS  - odd number verssions (short term suport, 18 months)
+      - LTS  - even number versions(long term suport, 36 months)
+
+    - Some things that might changed that you haven't noticed.
+        - Top Level Statements
+        - Record Types
+
+## Getting My Code
+    - "Breakpoint"
+    - "degit" (Update Readme)
+
+## Commands
+  -Pulling the instructor code
+    In ther root of your 'web-api-100' folder, run the following command
+
+```sh
+npx gitpick -o jeffrygonzalez/web-api-100-july-2025-instructor
