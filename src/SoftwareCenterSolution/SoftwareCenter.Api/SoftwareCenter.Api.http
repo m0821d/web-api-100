@@ -17,7 +17,7 @@ Content-type: application/json
 
 
 ###
-GET {{SoftwareCenter.Api_HostAddress}}/vendors/4b9e10a2-80bf-4ad1-8eba-a19c854065f7
+GET {{SoftwareCenter.Api_HostAddress}}/vendors/6fdee214-9215-47ba-a4c2-0743de2d68d4
 
 ###
 GET {{SoftwareCenter.Api_HostAddress}}/vendors/

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Alba;
 using SoftwareCenter.Api.Vendors;
 
@@ -16,7 +11,17 @@ public class AddAVendor
     {
         var host = await AlbaHost.For<Program>();
         // start the API with our Program.cs, and host it in memory
-        var vendorToCreate = new CreateVendorRequest("Microsoft", "https://www.microsoft.com", new CreateVendorPointOfContactRequest("Satya", "800 big-corp", "satya@microsoft.com"));
+        var vendorToCreate = new CreateVendorRequest
+        {
+            Name = "Microsoft",
+            Url = "https://www.microsoft.com",
+            PointOfContact = new CreateVendorPointOfContactRequest
+            {
+                Name = "satya",
+                Email = "satya@microsoft.com",
+                Phone = "888 555-1212"
+            }
+        };
         var postResponse = await host.Scenario(api =>
         {
             api.Post.Json(vendorToCreate).ToUrl("/vendors");
@@ -38,7 +43,9 @@ public class AddAVendor
 
         Assert.NotNull(getResponseBody);
 
+
         Assert.Equal(postBodyResponse, getResponseBody);
+
 
     }
 }
