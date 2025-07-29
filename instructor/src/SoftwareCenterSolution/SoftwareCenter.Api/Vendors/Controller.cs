@@ -27,6 +27,14 @@ public class Controller : ControllerBase
         return Ok(response); 
     }
 
+
+    // GET /vendors/tacos
+    [HttpGet("/vendors/{id:guid}")]
+    public async Task<ActionResult> GetVendorByIdAsync(Guid id, CancellationToken token)
+    {
+        return Ok();
+    }
+
 }
 
 /*{

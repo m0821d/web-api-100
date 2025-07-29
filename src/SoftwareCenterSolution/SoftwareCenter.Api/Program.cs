@@ -24,3 +24,5 @@ app.MapControllers(); //Go find all the controllers and look at th
 Console.WriteLine("Fixing to run your API");
 app.Run(); //this is a "blocking method" a while(true) {..}
 Console.WriteLine("done running your API");
+
+public partial class Program;

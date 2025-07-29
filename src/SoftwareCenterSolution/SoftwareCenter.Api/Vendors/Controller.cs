@@ -26,6 +26,13 @@ public class Controller : ControllerBase
         return Ok(response);
     }
 
+    //GET vendors/83983983
+    [HttpGet("/vendors/{id:guid}")]
+    public async Task<ActionResult> GetVendorByAsync(Guid id, CancellationToken token)
+    {
+        return Ok();
+    }
+
 }
 
 /*{
