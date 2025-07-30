@@ -1,0 +1,18 @@
+@Shows.Api_HostAddress = http://localhost:1338
+
+POST {{Shows.Api_HostAddress}}/shows/
+Accept: application/json
+Content-type: application/json
+
+{
+    "name": "Justified",
+    "description": "I really like this show",
+    "streamingService": "Hulu or FX"
+}
+
+###
+###
+GET {{Shows.Api_HostAddress}}/shows/8f85f50d-9680-4089-b68d-d8784e528765
+
+###
+GET {{Shows.Api_HostAddress}}/shows/
