@@ -21,7 +21,7 @@ public class Controller(IDocumentSession session) : ControllerBase
         //if(!ModelState.IsValid)
         // {
         //     return BadRequest(ModelState);
-        // }
+        // } 
 
         var validationResults = await validator.ValidateAsync(request);
         if (!validationResults.IsValid)
@@ -42,7 +42,7 @@ public class Controller(IDocumentSession session) : ControllerBase
             request.Url,
             request.PointOfContact
             );
-        session.Store(response); // I would to add avendor
+        session.Store(response); // I would to add a vendor
                                  // I want to update this other table, maybe...
         await session.SaveChangesAsync();
         return Ok(response);

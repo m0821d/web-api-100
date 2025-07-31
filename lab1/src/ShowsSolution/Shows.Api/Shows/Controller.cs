@@ -10,14 +10,14 @@ public class Controller(IDocumentSession session) : ControllerBase
     [HttpPost("/api/shows")]
     public async Task<ActionResult> AddAShow(
        [FromBody] AddShowRequest request,
-       //[FromServices] IValidator<CreateShowRequest> validator,
+       [FromServices] IValidator<AddShowRequest> validator,
        CancellationToken cancellationToken)
     {
-        //var validationResults = await validator.ValidateAsync(request);
-        //if (!validationResults.IsValid)
-        //{
-        //    return BadRequest(validationResults);
-        //}
+        var validationResults = await validator.ValidateAsync(request);
+        if (!validationResults.IsValid)
+        {
+            return BadRequest(validationResults);
+        }
 
         var response = new AddShowResponse(
             Guid.NewGuid(),
@@ -74,6 +74,16 @@ public class Controller(IDocumentSession session) : ControllerBase
         string StreamingService, 
         DateTimeOffset CreatedAt
         );
+
+    public class AddShowRequestValidator : AbstractValidator<AddShowRequest>
+    {
+        public AddShowRequestValidator()
+        {
+            RuleFor(c => c.Name).NotEmpty().MinimumLength(3).MaximumLength(100);
+            RuleFor(c => c.Description).NotEmpty().MinimumLength(10).MaximumLength(500);
+            RuleFor(c => c.StreamingService).NotEmpty();
+        }
+    }
 }
 
 

@@ -29,8 +29,30 @@ A catalog item has:
 - A description
 - A version number (we prefer SEMVER, but not all vendors use it)
 
+"Http Requests Must Contain All the Data Server needs to Fullfill the Request" - a rule. Just how it is
+
+ - Http Requests can put data in the following locations:
+  - The URL - including routinf parameters(e.g. GET /vendors/{id:guid}).
+    - "Query String Parameters" - GET /vendors?addedBy=sue@aol.com
+  - Headers
+    - Authorization this is(in API) always how we answer the "who" question.( GET POST PUT DELETE)
+  - You cansend a "body" (entity).(POST PU)
+
 
 Note - One catalog item may have several versions. Each is it's own item.
+Design:
+  - What is the resource
+  - What is the represantation
+  - What is the the method
+
+```http
+POST /catalog-items
+Content-Type: application/json  
+
+{
+  "name": "Visual Studio Code"
+  "version"
+}
 
 ## Use Cases
 

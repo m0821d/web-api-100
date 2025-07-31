@@ -11,6 +11,9 @@ public class AddAVendor
     [Fact]
     public async Task MustMeetSecurityPolicyToAddAVendor()
     {
+        //an empty authentication stub is simulating we have a consumer calling this
+        //endpoint who has been verified
+
         var host = await AlbaHost.For<Program>(
             cfg => { }, new AuthenticationStub());
 

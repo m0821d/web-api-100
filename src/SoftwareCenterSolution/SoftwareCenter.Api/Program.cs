@@ -1,8 +1,11 @@
 using FluentValidation;
 using Marten;
+using SoftwareCenter.Api.CatalogItems;
 using SoftwareCenter.Api.Vendors;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCatalogItems();
 
 builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddAuthorizationBuilder().AddPolicy("CanAddVendor", pol =>
@@ -47,6 +50,9 @@ app.UseAuthorization(); //when request is in to see if authorized
 
 app.MapControllers(); //Go find all the controllers and look at th
 Console.WriteLine("Fixing to run your API");
+
+app.MapCatalogItems();
+
 app.Run(); //this is a "blocking method" a while(true) {..}
 Console.WriteLine("done running your API");
 
